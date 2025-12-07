@@ -25,10 +25,22 @@ const { title, description = "A personal portfolio and CV." } = Astro.props;
 
 		<title>{title}</title>
 	</head>
-	<body class="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen">
-		<main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+	<body class="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen relative">
+		<main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 print:py-0 print:px-12 print:max-w-none print:w-full">
 			<slot />
 		</main>
+
+		<button
+			onclick="window.print()"
+			class="fixed bottom-8 right-8 z-50 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 p-4 rounded-full shadow-lg hover:scale-110 transition-transform print:hidden"
+			aria-label="Print CV"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<polyline points="6 9 6 2 18 2 18 9"></polyline>
+				<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+				<rect x="6" y="14" width="12" height="8"></rect>
+			</svg>
+		</button>
 	</body>
 </html>
 
