@@ -8,7 +8,7 @@ import { cvData } from '../data/cv';
 ---
 
 <Layout title={`${cvData.personal.name} - ${cvData.personal.role}`}>
-	<div class="space-y-12 sm:space-y-24">
+	<div class="space-y-12 sm:space-y-12 print:space-y-4">
 		<Hero />
 		<Experience experiences={cvData.experience} />
 		<Skills skills={cvData.skills} />
