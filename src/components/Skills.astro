@@ -1,0 +1,30 @@
+---
+import type { SkillCategory } from '../data/cv';
+
+interface Props {
+  skills: SkillCategory[];
+}
+
+const { skills } = Astro.props;
+---
+
+<section class="py-12">
+  <h2 class="text-2xl font-bold font-heading mb-8 text-zinc-900 dark:text-zinc-100">Technologies</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {skills.map((category) => (
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+          {category.name}
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {category.skills.map((skill) => (
+            <span class="px-2.5 py-1 text-sm rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/50">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

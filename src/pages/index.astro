@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+import Skills from '../components/Skills.astro';
+import Education from '../components/Education.astro';
+import { cvData } from '../data/cv';
+---
+
+<Layout title={`${cvData.personal.name} - ${cvData.personal.role}`}>
+	<div class="space-y-12 sm:space-y-24">
+		<Hero />
+		<Experience experiences={cvData.experience} />
+		<Skills skills={cvData.skills} />
+		<Education education={cvData.education} />
+	</div>
+</Layout>

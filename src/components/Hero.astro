@@ -1,0 +1,30 @@
+---
+import { cvData } from '../data/cv';
+---
+
+<section class="py-20 sm:py-32">
+  <div class="space-y-6">
+    <h1 class="text-4xl sm:text-5xl font-bold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight">
+      {cvData.personal.name}
+    </h1>
+    <h2 class="text-xl sm:text-2xl text-zinc-600 dark:text-zinc-400 font-medium">
+      {cvData.personal.role}
+    </h2>
+    <div class="flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400">
+      <a 
+        href={`mailto:${cvData.personal.email}`}
+        class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors underline decoration-zinc-300 hover:decoration-zinc-500 underline-offset-4"
+      >
+        {cvData.personal.email}
+      </a>
+      <span>•</span>
+      <span>{cvData.personal.location}</span>
+    </div>
+    <div class="pt-4 max-w-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+      <p>
+        Lead Software Engineer with over a decade of experience in architecting scalable microservices, 
+        leading development teams, and ensuring software quality in the Swiss banking and healthcare sectors.
+      </p>
+    </div>
+  </div>
+</section>

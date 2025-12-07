@@ -1,0 +1,43 @@
+---
+import type { Experience } from '../data/cv';
+
+interface Props {
+  experiences: Experience[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<section class="py-12">
+  <h2 class="text-2xl font-bold font-heading mb-8 text-zinc-900 dark:text-zinc-100">Experience</h2>
+  
+  <div class="space-y-12 relative border-l border-zinc-200 dark:border-zinc-800 ml-3 pl-8 sm:ml-0 sm:pl-0 sm:border-0 sm:space-y-8">
+    
+    {experiences.map((exp) => (
+      <div class="relative sm:grid sm:grid-cols-12 sm:gap-8 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 p-4 -mx-4 rounded-xl transition-colors group">
+        
+       {/* Mobile Timeline Dot */}
+       <div class="absolute -left-[37px] top-6 w-3 h-3 rounded-full border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900 sm:hidden"></div>
+
+        <div class="sm:col-span-3 text-sm text-zinc-500 dark:text-zinc-400 pt-1 font-mono">
+          {exp.startDate} — {exp.endDate}
+        </div>
+        
+        <div class="sm:col-span-9 space-y-2">
+          <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">
+            {exp.role} <span class="text-zinc-400 font-normal">at</span> {exp.company}
+          </h3>
+          <p class="text-sm text-zinc-500 dark:text-zinc-500">{exp.location}</p>
+          
+          {exp.description && (
+            <ul class="pt-2 space-y-1.5 list-disc list-outside ml-4 text-sm text-zinc-600 dark:text-zinc-400 marker:text-zinc-300 dark:marker:text-zinc-700">
+              {exp.description.map((item) => (
+                <li class="pl-1">{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
